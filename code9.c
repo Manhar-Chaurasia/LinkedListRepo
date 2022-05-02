@@ -1,4 +1,4 @@
-// inserting node at beginning, nth position and deletion
+//inserting node at beginning, nth position and deletion
 #include <stdio.h>
 #include <stdlib.h>
 struct Node
