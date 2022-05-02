@@ -1,3 +1,4 @@
+// inserting node at beginning, nth position and deletion
 #include <stdio.h>
 #include <stdlib.h>
 struct Node
@@ -5,38 +6,76 @@ struct Node
     int data;
     struct Node *next;
 };
-
-struct Node *addToEmpty(int data)
+struct Node *head;
+void Insert(int data, int n)
 {
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
-    temp->data = data;
-    temp->next = temp;
-    return temp;
+    struct Node *new = (struct Node *)malloc(sizeof(struct Node));
+    new->data = data;
+    struct Node *temp = head;
+    if (n == 1)
+    {
+        head = new;
+        new->next = head;
+        return;
+    }
+    else
+    {
+        for (int i = 0; i < n - 2; i++)
+        {
+            temp = temp->next;
+        }
+        new->next = temp->next;
+        temp->next = new;
+    }
 }
 
-struct Node *addToBeg(struct Node *tail, int data)
+void Delete(int n)
 {
-    struct Node *newp = (struct Node *)malloc(sizeof(struct Node));
-    newp->data = data;
-    newp->next = tail->next;
-    tail->next = newp;
-    return tail;
+    struct Node *temp = head;
+    struct Node *temp1 = head;
+    if (n == 1)
+    {
+        while (temp->next != head)
+        {
+            temp = temp->next;
+        }
+        head = head->next;
+        temp->next = head;
+        free(temp1);
+    }
+    else
+    {
+        for (int i = 0; i < n - 2; i++)
+        {
+            temp1 = temp1->next;
+        }
+        struct Node *temp2 = temp1->next;
+        temp1->next = temp2->next;
+        free(temp2);
+    }
 }
 
-void Print(struct Node *tail)
+void Print()
 {
-    struct Node *p = tail->next;
+    struct Node *temp = head;
     do
     {
-        printf("%d  ", p->data);
-        p = p->next;
-    } while (p != tail->next);
+        printf("%d  ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
 }
+
 int main()
 {
-    struct Node *tail;
-    tail = addToEmpty(45);
-    tail = addToBeg(tail, 34);
-    Print(tail);
-    // to print node one by one use addToEmpty func, put value in it and call print func for every addToempty call
+    head = NULL;
+    Insert(2, 1);
+    Insert(4, 2);
+    Insert(6, 3);
+    Insert(8, 4);
+    Print();
+    int n;
+    printf("\nEnter a position to delete");
+    scanf("%d", &n);
+    Delete(n);
+    Print();
 }
