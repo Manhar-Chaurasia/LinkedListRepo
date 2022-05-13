@@ -7,7 +7,6 @@ struct Node
     struct Node *prev;
     struct Node *next;
 };
-
 struct Node *head;
 
 void Insert(int data, int n)
