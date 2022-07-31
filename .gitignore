@@ -21,6 +21,7 @@ eval_postfix.exe
 p1.c
 p1.exe
 queue.c
+queue.exe
 sss.c
 sss.exe
 www.c
@@ -34,4 +35,5 @@ zero_arr.exe
 zero_arr1.c
 zero_arr1.exe
 circular_que.c
-
+ds_prac.c
+ds_prac.exe
