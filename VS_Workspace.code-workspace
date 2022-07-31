@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\Sortings"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdio.h": "c",
+			"limits": "c",
+			"string.h": "c",
+			"cmath": "c",
+			"ctype.h": "c",
+			"stdlib.h": "c"
+		},
+		"git.ignoreLimitWarning": true
+	}
+}
